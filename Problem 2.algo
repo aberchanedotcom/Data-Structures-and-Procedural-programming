@@ -1,0 +1,65 @@
+Q1 
+ALGORITHM produit_scalaire
+VAR
+    ps: integer, 
+    v1: array_of integer, 
+    v2: array_of integer,
+BEGIN
+     i: INTEGER;
+     ps = 0;
+
+     FOR i FROM 0 TO v1.length-1 STEP 1  DO
+   	    ps += v1[i]*v2[i]
+	 END_FOR;
+END
+
+Q2
+ALGORITHM vectors
+VAR
+    v1: ARRAY_OF INTEGER;
+	v2: ARRAY_OF INTEGER;
+	i,ps : INTEGER
+BEGIN
+    FOR i FROM 0 to n STEP 1 DO
+		read_array(v1)
+		read_array(v2)
+		produit_scalaire(ps, v1, v2)
+		IF ps = 0 THEN
+			WRITE("ORTHOGONAL VECTORS")
+		ELSE 
+			WRITE(" NOT ORTHOGONAL VECTORS")
+		END IF
+END
+
+Q3
+
+FUNCTION produit_scalaire(v1: array_of integer, v2: array_of integer): integer
+VAR
+   ps: integer;
+BEGIN
+	ps= 0:
+	FOR i FROM 0 TO v1.length-1 STEP 1  DO
+    	ps += v1[i]*v2[i]
+	END FOR
+	RETURN ps;
+END
+
+Q4
+
+ALGORITHM vectors
+	VAR:
+		v1: ARRAY_OF INTEGER;
+		v2: ARRAY_OF INTEGER;
+		i,ps : INTEGER
+	BEGIN:
+		FOR i FROM 0 to n STEP 1 DO
+			read_array(v1)
+			read_array(v2)
+			ps = produit_scalaire(v1, v2)
+			IF ps = 0 THEN
+				WRITE("ORTHOGONAL VECTORS")
+			ELSE  
+				WRITE(" NOT ORTHOGONAL VECTORS")
+			END IF
+			Return ps ;
+	END
